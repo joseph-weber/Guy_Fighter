@@ -4,6 +4,10 @@ const $scoreboard = $('#scoreboard');
 
 const $body = $('body');
 
+const $conanButton = $('.conan-button');
+
+const $guyButton = $('.guy-button');
+
 
 
 //////////////////////////////////////////
@@ -102,6 +106,8 @@ class TVChef extends Character {
   break;
 }
 winGame(wAA);
+$conanButton.show();
+$guyButton.hide();
 }
   // give message about guard
   shield () {
@@ -155,7 +161,10 @@ class Enemy extends Character {
     console.log('You have dealt 40 damage to ' + opponent.name);
     opponent.health -= 40;
     break;
-}}
+}
+$conanButton.hide();
+$guyButton.show();
+}
   // give message about guard
   shield () {
 super.shield ()
