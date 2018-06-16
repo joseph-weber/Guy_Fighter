@@ -7,6 +7,15 @@ const $body = $('body');
 
 
 //////////////////////////////////////////
+// All my functions go here
+const winGame = (opponent) => {
+  if (opponent.health <= 0){
+    alert('you won the game');
+  }
+}
+
+
+//////////////////////////////////////////
 // Create my general fighter class here
 class Character {
   // health will be the same for both characters
@@ -53,20 +62,47 @@ class TVChef extends Character {
   // give message about partic attack
   attack(opponent, move){
   super.attack(opponent, move)
+  const rando = Math.random() * 1;
   switch (move) {
   case 'Donkey Sauce':
+    if (rando < this.weapons.donkeySauce.accuracy){
     console.log('You have dealt 25 damage to ' + opponent.name);
+    opponent.health -= 25;
+  }
+    else {
+      console.log('you missed');
+    }
     break;
   case 'Frosted Tip Projectiles':
-  console.log('You have dealt 10 damage to ' + opponent.name);
-  break;
+    if (rando < this.weapons.frostedTipProjectiles.accuracy){
+    console.log('You have dealt 10 damage to ' + opponent.name);
+    opponent.health -= 10;
+    }
+    else {
+      console.log('you missed');
+    }
+    break;
   case 'Bowling Shirt Flamethrower':
+  if (rando < this.weapons.bowlingShirtFlameThrower.accuracy){
     console.log('You have dealt 100 damage to ' + opponent.name);
-    break;
+    opponent.health -= 100;
+    }
+    else {
+    console.log('you missed');
+  }
+  break;
   case 'Alliterative TV Show':
+  if (rando < this.weapons.alliterativeShowTitles.accuracy){
     console.log('You have dealt 40 damage to ' + opponent.name);
-    break;
-}}
+    opponent.health -= 40;
+    }
+    else {
+    console.log('you missed');
+  }
+  break;
+}
+winGame(wAA);
+}
   // give message about guard
   shield () {
 super.shield ()
@@ -105,15 +141,19 @@ class Enemy extends Character {
   switch (move) {
   case 'Health Conscious Food':
     console.log('You have dealt 25 damage to ' + opponent.name);
+    opponent.health -= 25;
     break;
   case 'Appropriate Clothing':
   console.log('You have dealt 10 damage to ' + opponent.name);
+  opponent.health -= 10;
   break;
   case 'Mid-life Crisis Antidote':
     console.log('You have dealt 100 damage to ' + opponent.name);
+    opponent.health -= 100;
     break;
   case 'Good Table Manners':
     console.log('You have dealt 40 damage to ' + opponent.name);
+    opponent.health -= 40;
     break;
 }}
   // give message about guard
@@ -128,9 +168,9 @@ const wAA = new Enemy('Well Adjusted Adult', 1000);
 
 console.log(guy.weapons.donkeySauce.power);
 
-console.log(wAA.weapons.midlifeCrisisAntidote.power);
+// commented this out for practice console.log(wAA.weapons.midlifeCrisisAntidote.power);
 
-guy.attack(wAA, 'Frosted Tip Projectiles');
+// guy.attack(wAA, 'Frosted Tip Projectiles');
 guy.shield();
 wAA.shield();
 $(()=> {
