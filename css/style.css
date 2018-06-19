@@ -6,13 +6,16 @@ body {
   height: 100%;
 }
 
+h1 {
+  margin: 0;
+}
+
 #gameboard {
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 40px;
   height: 100%;
 }
-
 
 
 #conan-div #conan-pic {
@@ -31,13 +34,41 @@ body {
   align-items: center;
 }
 
-#scoreboard {
+#guy-health, #conan-health {
   width: 400px;
   height: 30px;
   background-color: black;
   margin: 0 auto;
+  color: white;
 }
 
 button {
   width: 200px;
+  background-color: blue;
+  border-radius: 20px;
+  color: white;
+}
+
+#attack-images {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+#attack-images img {
+  width: 200px;
+  height: auto;
+  visibility: hidden;
+}
+
+#attack-images p {
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 80px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
